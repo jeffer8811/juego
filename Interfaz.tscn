@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Interfaz.gd" type="Script" id=1]
+[ext_resource path="res://Avara.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+extra_spacing_top = 18
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 120
+extra_spacing_top = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 55
+extra_spacing_top = 12
+font_data = ExtResource( 2 )
+
+[node name="Interfaz" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="PunteoLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -177.5
+margin_right = 177.5
+margin_bottom = 155.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Mensaje" type="Label" parent="."]
+margin_left = 226.0
+margin_top = 194.0
+margin_right = 1171.0
+margin_bottom = 381.0
+custom_fonts/font = SubResource( 2 )
+text = "Sobervivirus"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -101.0
+margin_top = 116.0
+margin_right = 161.0
+margin_bottom = 229.0
+custom_fonts/font = SubResource( 3 )
+text = "PLAY"
+
+[node name="MensajeTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="MensajeTimer" to="PunteoLabel" method="_on_MensajeTimer_timeout"]
